@@ -55,50 +55,28 @@ public class StatisticsTest {
         assertEquals("Semenko", result.get(0).getName());
     }
     
-    /**
-     * Test of search method, of class Statistics.
-     
     @Test
     public void testSearch() {
         System.out.println("search");
-        String name = "";
-        Statistics instance = null;
-        Player expResult = null;
-        Player result = instance.search(name);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String name = "Kurri";
+        Player result = stats.search(name);
+        assertEquals(name, result.getName());
     }
 
-    /**
-     * Test of team method, of class Statistics.
-     
     @Test
-    public void testTeam() {
-        System.out.println("team");
-        String teamName = "";
-        Statistics instance = null;
-        List<Player> expResult = null;
-        List<Player> result = instance.team(teamName);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testSearchNotFound() {
+        System.out.println("search");
+        String name = "Kalinen";
+        Player result = stats.search(name);
+        assertEquals(null, result);
     }
-
-    /**
-     * Test of topScorers method, of class Statistics.
      
     @Test
     public void testTopScorers() {
         System.out.println("topScorers");
-        int howMany = 0;
-        Statistics instance = null;
-        List<Player> expResult = null;
-        List<Player> result = instance.topScorers(howMany);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        int howMany = 1;
+        List<Player> result = stats.topScorers(howMany);
+        assertEquals("Gretzky", result.get(0).getName());
     }
-    */
     
 }
