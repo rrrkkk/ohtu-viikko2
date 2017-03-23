@@ -3,13 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package ohtuesimerkki;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 /**
  *
  * @author r
  */
 public class StatisticsTest {
+    
     Reader readerStub = new Reader() {
  
         public List<Player> getPlayers() {
@@ -32,4 +46,11 @@ public class StatisticsTest {
         // luodaan Staatistics-olio joka käyttää "stubia"
         stats = new Statistics(readerStub);
     }  
+
+
+    // TODO add test methods here.
+    // The methods must be annotated with annotation @Test. For example:
+    //
+    // @Test
+    // public void hello() {}
 }

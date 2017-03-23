@@ -3,6 +3,8 @@ apply plugin: 'java'
 
 apply plugin: 'application'
 
+apply plugin: "jacoco"
+
 repositories {
     jcenter()
 }
@@ -18,11 +20,9 @@ run {
     standardInput = System.in
 }
 
-apply plugin: "jacoco"
-
-jacocoTestReport {
+/* jacocoTestReport {
     reports {
         xml.enabled = true // coveralls plugin depends on xml format report
         html.enabled = true
     }
-}
+} */
