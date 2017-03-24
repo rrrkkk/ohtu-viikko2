@@ -11,5 +11,11 @@
 
     <context:annotation-config />
     <context:component-scan base-package="ohtu.verkkokauppa" />
+    
+    <bean id="viitegeneraattori" class="ohtu.verkkokauppa.Viitegeneraattori">
+    </bean>
+
+    <bean id="kirjanpito" class="ohtu.verkkokauppa.Kirjanpito">
+    </bean>
 
 </beans>
