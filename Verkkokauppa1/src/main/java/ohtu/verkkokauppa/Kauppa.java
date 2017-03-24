@@ -5,7 +5,7 @@ public class Kauppa {
     private Varasto varasto;
     private Pankki pankki;
     private Ostoskori ostoskori;
-    private Viitegeneraattori viitegeneraattori;
+    private UusiViitegeneraattori viitegeneraattori;
     private String kaupanTili;
 
     public Kauppa(UusiViitegeneraattori uusiviitegeneraattori) {
