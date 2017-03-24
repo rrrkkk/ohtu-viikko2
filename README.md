@@ -1,5 +1,3 @@
 # ohtu-viikko2
 
-Laskarit 1-8 tehty
-
-Laskari 9 alkaa
+Laskarit 1-9 tehty
