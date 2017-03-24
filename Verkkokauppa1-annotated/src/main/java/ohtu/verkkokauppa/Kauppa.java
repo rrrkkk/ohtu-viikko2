@@ -1,5 +1,9 @@
 package ohtu.verkkokauppa;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class Kauppa {
 
     private UusiVarasto varasto;
@@ -8,6 +12,7 @@ public class Kauppa {
     private UusiViitegeneraattori viitegeneraattori;
     private String kaupanTili;
 
+    @Autowired
     public Kauppa(UusiVarasto uusivarasto, UusiPankki uusipankki, UusiViitegeneraattori uusiviitegeneraattori) {
         varasto = uusivarasto;
         pankki = uusipankki;
