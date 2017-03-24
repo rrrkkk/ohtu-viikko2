@@ -17,5 +17,9 @@
 
     <bean id="kirjanpito" class="ohtu.verkkokauppa.Kirjanpito">
     </bean>
+    
+    <bean id="pankki" class="ohtu.verkkokauppa.Pankki">
+        <constructor-arg ref="kirjanpito" />
+    </bean>
 
 </beans>
