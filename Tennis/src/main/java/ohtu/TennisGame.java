@@ -22,9 +22,7 @@ public class TennisGame {
     }
 
     public String getScore() {
-        String score = "";
-        int tempPoints=0;
-        
+ 
         if (points1==points2) {
             return evenPointsToScores(points1);
         }
@@ -32,17 +30,8 @@ public class TennisGame {
         if (points1>=4 || points2>=4) {
             return largeUnevenPointsToScores(points1, points2);
         }
-        
-        for (int i = 1; i < 3; i++) {
-            if (i == 1) {
-                tempPoints = points1;
-            } else {
-                score += "-";
-                tempPoints = points2;
-            }
-            score += pointsToScore(tempPoints);
-        }
-        return score;
+    
+        return smallUnevenPointsToScores(points1, points2);
     }
     
     static String pointsToScore(int points) {
@@ -86,4 +75,8 @@ public class TennisGame {
             return "Win for player2";
         }
     }
+
+    private String smallUnevenPointsToScores(int points1, int points2) {
+        return pointsToScore(points1) + "-" + pointsToScore(points2);
+   }
 }
