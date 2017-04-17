@@ -6,4 +6,4 @@ Laskarit 1-11 tehty
 
 ## Viikko 5
 
-Laskarit 1-4 tehty
+Laskarit 1-5 tehty
