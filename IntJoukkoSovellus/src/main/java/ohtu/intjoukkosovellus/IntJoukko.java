@@ -88,18 +88,20 @@ public class IntJoukko {
         } else if (alkioidenLkm == 1) {
             return "{" + alkiot[0] + "}";
         } else {
-            String tuotos = "{";
-            for (int i = 0; i < alkioidenLkm - 1; i++) {
-                tuotos += alkiot[i];
-                tuotos += ", ";
-            }
-            tuotos += alkiot[alkioidenLkm - 1];
-            tuotos += "}";
-            return tuotos;
+            return toStringMonta();
         }
     }
 
-    public int[] toIntArray() {
+    private String toStringMonta() {
+        String tuotos = "{";
+        for (int i = 0; i < alkioidenLkm - 1; i++) {
+            tuotos += alkiot[i] + ", ";
+        }
+        tuotos += alkiot[alkioidenLkm - 1] + "}";
+        return tuotos;
+    }
+        
+   public int[] toIntArray() {
         int[] taulu = new int[alkioidenLkm];
         for (int i = 0; i < taulu.length; i++) {
             taulu[i] = alkiot[i];
@@ -110,27 +112,24 @@ public class IntJoukko {
 
     public static IntJoukko yhdiste(IntJoukko a, IntJoukko b) {
         IntJoukko x = new IntJoukko();
-        int[] aTaulu = a.toIntArray();
-        int[] bTaulu = b.toIntArray();
-        for (int i = 0; i < aTaulu.length; i++) {
-            x.lisaa(aTaulu[i]);
-        }
-        for (int i = 0; i < bTaulu.length; i++) {
-            x.lisaa(bTaulu[i]);
-        }
+        x.lisaaJoukko(a);
+        x.lisaaJoukko(b);
         return x;
+    }
+
+    private void lisaaJoukko(IntJoukko j) {
+        int[] jTaulu = j.toIntArray();
+        for (int i = 0; i < jTaulu.length; i++) {
+            lisaa(jTaulu[i]);
+        }
     }
 
     public static IntJoukko leikkaus(IntJoukko a, IntJoukko b) {
         IntJoukko y = new IntJoukko();
         int[] aTaulu = a.toIntArray();
-        int[] bTaulu = b.toIntArray();
         for (int i = 0; i < aTaulu.length; i++) {
-            for (int j = 0; j < bTaulu.length; j++) {
-                if (aTaulu[i] == bTaulu[j]) {
-                    y.lisaa(bTaulu[j]);
-                }
-            }
+            if (b.kuuluu(aTaulu[i]))
+                y.lisaa(aTaulu[i]);
         }
         return y;
 
@@ -165,5 +164,5 @@ public class IntJoukko {
 	alkiot[alkioidenLkm] = luku;
 	alkioidenLkm ++;
     }
-        
+
 }
