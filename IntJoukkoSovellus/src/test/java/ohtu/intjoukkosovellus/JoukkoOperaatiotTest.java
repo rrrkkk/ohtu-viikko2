@@ -6,11 +6,11 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class JoukkoOperaatiotTest {
+public class JoukkoOperaatiotTest extends IntJoukkoTest {
     
     
     @Test
-    public void testSomething() {
+    public void testYhdiste() {
         IntJoukko eka = teeJoukko(1,2);
         IntJoukko toka = teeJoukko(3,4);
         
@@ -19,6 +19,34 @@ public class JoukkoOperaatiotTest {
         Arrays.sort(vastauksenLuvut);
         
         int[] odotettu = {1,2,3,4};
+        
+        assertArrayEquals(odotettu, vastauksenLuvut);        
+    } 
+
+    @Test
+    public void testLeikkaus() {
+        IntJoukko eka = teeJoukko(1,2,3);
+        IntJoukko toka = teeJoukko(3,4,5);
+        
+        IntJoukko tulos = IntJoukko.leikkaus(eka, toka);
+        int[] vastauksenLuvut = tulos.toIntArray();
+        Arrays.sort(vastauksenLuvut);
+        
+        int[] odotettu = {3};
+        
+        assertArrayEquals(odotettu, vastauksenLuvut);        
+    } 
+
+    @Test
+    public void testErotus() {
+        IntJoukko eka = teeJoukko(1,2,3,4);
+        IntJoukko toka = teeJoukko(3,4);
+        
+        IntJoukko tulos = IntJoukko.erotus(eka, toka);
+        int[] vastauksenLuvut = tulos.toIntArray();
+        Arrays.sort(vastauksenLuvut);
+        
+        int[] odotettu = {1,2};
         
         assertArrayEquals(odotettu, vastauksenLuvut);        
     } 

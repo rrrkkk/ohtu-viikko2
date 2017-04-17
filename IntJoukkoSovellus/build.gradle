@@ -15,3 +15,5 @@ mainClassName = 'ohtu.intjoukkosovellus.Sovellus'
 run {
     standardInput = System.in
 }
+
+apply plugin: 'jacoco'

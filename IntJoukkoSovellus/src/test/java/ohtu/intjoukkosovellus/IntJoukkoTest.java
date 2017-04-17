@@ -44,6 +44,12 @@ public class IntJoukkoTest {
     }
     
     @Test
+    public void joukkoonKuulumattomanPoisto() {
+        joukko.poista(3);
+        assertEquals(false, joukko.poista(3));
+    }
+
+    @Test
     public void palautetaanOikeaTaulukko() {
         int[] odotettu = {3, 55, 99};
         

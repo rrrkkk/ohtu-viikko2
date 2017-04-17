@@ -13,14 +13,14 @@ public class IntJoukko {
     public IntJoukko() {
         alkiot = new int[OLETUSKAPASITEETTI];
         alkioidenLkm = 0;
-        this.kasvatuskoko = OLETUSKASVATUS;
+        kasvatuskoko = OLETUSKASVATUS;
     }
 
     public IntJoukko(int kapasiteetti) {
         tarkastaKapasiteetti(kapasiteetti);
         alkiot = new int[kapasiteetti];
         alkioidenLkm = 0;
-        this.kasvatuskoko = OLETUSKASVATUS;
+        kasvatuskoko = OLETUSKASVATUS;
     }
     
     public IntJoukko(int kapasiteetti, int kasvatuskoko) {
@@ -137,15 +137,11 @@ public class IntJoukko {
     
     public static IntJoukko erotus ( IntJoukko a, IntJoukko b) {
         IntJoukko z = new IntJoukko();
-        int[] aTaulu = a.toIntArray();
+        z.lisaaJoukko(a);
         int[] bTaulu = b.toIntArray();
-        for (int i = 0; i < aTaulu.length; i++) {
-            z.lisaa(aTaulu[i]);
-        }
         for (int i = 0; i < bTaulu.length; i++) {
-            z.poista(i);
+            z.poista(bTaulu[i]);
         }
- 
         return z;
     }
 
