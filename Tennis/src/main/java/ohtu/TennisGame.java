@@ -24,26 +24,23 @@ public class TennisGame {
     public String getScore() {
         String score = "";
         int tempPoints=0;
+        
         if (points1==points2) {
             return evenPointsToScores(points1);
         }
         
-        if (points1>=4 || points2>=4)
-        {
-            int minusResult = points1-points2;
-            if (minusResult==1) score ="Advantage player1";
-            else if (minusResult ==-1) score ="Advantage player2";
-            else if (minusResult>=2) score = "Win for player1";
-            else score ="Win for player2";
+        if (points1>=4 || points2>=4) {
+            return largeUnevenPointsToScores(points1, points2);
         }
-        else
-        {
-            for (int i=1; i<3; i++)
-            {
-                if (i==1) tempPoints = points1;
-                else { score+="-"; tempPoints = points2;}
-                score += pointsToScore(tempPoints);
+        
+        for (int i = 1; i < 3; i++) {
+            if (i == 1) {
+                tempPoints = points1;
+            } else {
+                score += "-";
+                tempPoints = points2;
             }
+            score += pointsToScore(tempPoints);
         }
         return score;
     }
@@ -75,5 +72,18 @@ public class TennisGame {
             ret = "Deuce";
         }
         return ret;
+    }
+
+    private String largeUnevenPointsToScores(int points1, int points2) {
+        int diff = points1 - points2;
+        if (diff == 1) {
+            return "Advantage player1";
+        } else if (diff == -1) {
+            return "Advantage player2";
+        } else if (diff >= 2) {
+            return "Win for player1";
+        } else {
+            return "Win for player2";
+        }
     }
 }
