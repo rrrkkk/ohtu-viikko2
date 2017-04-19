@@ -37,15 +37,20 @@ public class IntJoukko {
     }
 
     public boolean kuuluu(int luku) {
-        for (int i = 0; i < alkioidenLkm; i++) {
-            if (luku == alkiot[i]) {
-                return true;
-            }
-        }
-        return false;
+        return loytyyPaikasta(luku)!=-1;
     }
 
-    public boolean poista(int luku) {
+
+    private int loytyyPaikasta(int luku) {
+        for (int i = 0; i < alkioidenLkm; i++) {
+            if (luku == alkiot[i]) {
+                return i;
+            }
+        }
+        return -1;
+    }    
+    
+    public boolean poista(int luku) {        
         if (kuuluu(luku)) {
             poistaKuuluva(luku);
             return true;
@@ -54,13 +59,10 @@ public class IntJoukko {
     }
  
     private void poistaKuuluva(int luku) {
-        boolean loytyi = false;
+        int paikka = loytyyPaikasta(luku);
         alkioidenLkm --;
-        for (int i = 0; i < alkioidenLkm; i ++) {
-            if (alkiot[i] == luku)
-                loytyi = true;
-            if (loytyi)
-                alkiot[i] = alkiot[i + 1];
+        for (int i = paikka; i < alkioidenLkm; i ++) {
+            alkiot[i] = alkiot[i + 1];
         }
     }
 
