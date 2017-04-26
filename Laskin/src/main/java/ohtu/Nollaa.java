@@ -15,6 +15,7 @@ public class Nollaa implements Komento {
     
     private Sovelluslogiikka sov;
     private JTextField tulos, syote;
+    private int vanha_tulos;
 
     public Nollaa(Sovelluslogiikka sovellus, JTextField tuloskentta, JTextField syotekentta) {
         sov = sovellus;
@@ -23,13 +24,16 @@ public class Nollaa implements Komento {
     }
     
     public void suorita() {
+        vanha_tulos = sov.tulos();
         sov.nollaa();
         syote.setText("");
         tulos.setText("" + sov.tulos());
     }
     
     public void peru() {
-        /* empty for now */
+        sov.aseta(vanha_tulos);
+        syote.setText("");
+        tulos.setText("" + sov.tulos());
     }
     
 }
