@@ -10,9 +10,36 @@ public class Main {
                              new HasAtLeast(10, "assists"),
                              new PlaysIn("PHI")
         );
-        
         for (Player player : stats.matches(m)) {
             System.out.println( player );
         }
+        System.out.println();
+        
+        m = new And(new HasFewerThan(10, "goals"),
+                new HasFewerThan(10, "assists"),
+                new PlaysIn("PHI")
+        );
+        for (Player player : stats.matches(m)) {
+            System.out.println( player );
+        }
+        System.out.println();
+        
+        m = new Or(new HasFewerThan(10, "goals"),
+                new HasAtLeast(10, "assists")
+        );
+        for (Player player : stats.matches(m)) {
+            System.out.println( player );
+        }
+        System.out.println();
+        
+         m = new Not (new Or(new HasFewerThan(10, "goals"),
+                             new HasAtLeast(10, "assists")
+                             )
+         );
+        for (Player player : stats.matches(m)) {
+            System.out.println( player );
+        }
+        System.out.println();
+        
     }
 }

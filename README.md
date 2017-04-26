@@ -10,4 +10,4 @@ Laskarit 1-8 tehty
 
 ## Viikko 6
 
-Laskarit 1-2 tehty
+Laskarit 1-3 tehty
