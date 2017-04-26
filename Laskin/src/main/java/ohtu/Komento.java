@@ -9,6 +9,10 @@ package ohtu;
  *
  * @author r
  */
-class Komento {
+interface Komento {
     
+    public void suorita();
+    
+    public void peru();
+
 }
