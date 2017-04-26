@@ -12,7 +12,7 @@ import statistics.Player;
  * @author r
  */
 public class QueryBuilder {
-    MockMatcher matcher;
+    Matcher matcher;
 
     public QueryBuilder() {
         matcher = new MockMatcher();

@@ -5,9 +5,9 @@ import statistics.Player;
 
 public class PlaysIn implements Matcher {
     private String team;
-    private MockMatcher matcher;
+    private Matcher matcher;
 
-    public PlaysIn(MockMatcher matcher, String team) {
+    public PlaysIn(Matcher matcher, String team) {
         this.matcher = matcher;
         this.team = team;
     }        
