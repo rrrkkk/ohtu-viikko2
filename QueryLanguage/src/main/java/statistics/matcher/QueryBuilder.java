@@ -23,7 +23,7 @@ public class QueryBuilder {
         return this;
     }
 
-    public Matcher matcher(){
+    public Matcher build(){
         return matcher;
     }
 }
