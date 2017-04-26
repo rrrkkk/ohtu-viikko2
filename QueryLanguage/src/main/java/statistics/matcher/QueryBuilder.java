@@ -18,13 +18,13 @@ public class QueryBuilder {
         matcher = new MockMatcher();
     }
 
+    public Matcher build(){
+        return matcher;
+    }
+
     public QueryBuilder playsIn(String team) {
         this.matcher = new PlaysIn(matcher, team);
         return this;
-    }
-
-    public Matcher build(){
-        return matcher;
     }
 
     public QueryBuilder hasAtLeast(int i, String s) {
