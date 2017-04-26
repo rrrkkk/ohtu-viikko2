@@ -26,4 +26,14 @@ public class QueryBuilder {
     public Matcher build(){
         return matcher;
     }
+
+    public QueryBuilder hasAtLeast(int i, String s) {
+        this.matcher = new HasAtLeast(matcher, i, s);
+        return this;
+    }
+
+    public QueryBuilder hasFewerThan(int i, String s) {
+        this.matcher = new HasFewerThan(matcher, i, s);
+        return this;
+    }
 }
