@@ -21,17 +21,17 @@ public class QueryBuilder {
     }
 
     public QueryBuilder playsIn(String team) {
-        this.matcher = And (this.matcher, new PlaysIn(matcher, team));
+        this.matcher = new And (this.matcher, new PlaysIn(matcher, team));
         return this;
     }
 
     public QueryBuilder hasAtLeast(int i, String s) {
-        this.matcher = new HasAtLeast(matcher, i, s);
+        this.matcher = new And (this.matcher, new HasAtLeast(matcher, i, s));
         return this;
     }
 
     public QueryBuilder hasFewerThan(int i, String s) {
-        this.matcher = new HasFewerThan(matcher, i, s);
+        this.matcher = new And (this.matcher, new HasFewerThan(matcher, i, s));
         return this;
     }
 }
