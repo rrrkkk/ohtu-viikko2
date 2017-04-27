@@ -5,8 +5,6 @@
  */
 package statistics.matcher;
 
-import statistics.Player;
-
 /**
  *
  * @author r
@@ -23,7 +21,7 @@ public class QueryBuilder {
     }
 
     public QueryBuilder playsIn(String team) {
-        this.matcher = new PlaysIn(matcher, team);
+        this.matcher = And (this.matcher, new PlaysIn(matcher, team));
         return this;
     }
 
