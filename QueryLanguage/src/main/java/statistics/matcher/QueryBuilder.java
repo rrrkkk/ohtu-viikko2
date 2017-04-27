@@ -17,7 +17,9 @@ public class QueryBuilder {
     }
 
     public Matcher build(){
-        return matcher;
+        Matcher m = matcher;
+        matcher = new MockMatcher();
+        return m;
     }
 
     public QueryBuilder playsIn(String team) {
